@@ -42,4 +42,4 @@ VOLUME ["/data/conf"]
 #ENTRYPOINT [ "./run.sh" ]
 
 #CMD [ "mongod" ] 
-CMD [ "java", "-jar", "dynfi-21.0.5-all.jar", "--config",  "/data/conf/custom.dynfi.conf" ]
+CMD [ "java", "-jar", "dynfi-21.0.10-all.jar", "--config",  "/data/conf/custom.dynfi.conf" ]
