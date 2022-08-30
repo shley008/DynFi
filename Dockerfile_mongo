@@ -1,4 +1,4 @@
-FROM alpine:3.11.2
+FROM alpine:3.16
 
 
 RUN \
@@ -8,8 +8,9 @@ RUN \
 
 # install Mongo
 RUN \
-  apk add mongodb=3.4.4-r0
-  
+  apk update
+  apk add mongodb
+  apk add mongodb-tools
 # Create dir Mongo
 RUN mkdir -p /data/db
 RUN chown mongodb:mongodb /data/db
