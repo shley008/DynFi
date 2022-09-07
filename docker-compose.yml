@@ -1,11 +1,10 @@
 version: '3.8'
 services:
   dynfiapp:
-    image: azul/zulu-openjdk-debian:18-latest
     container_name: dynfiapp
     hostname: dynfiapp
     build:
-      context: .
+      context: ./
       dockerfile: Dockerfile_Java
     volumes:
       - ./conf:/data/conf
@@ -13,8 +12,7 @@ services:
       - dynfidb:dynfidb
     ports:
       - '9090:9090'
-      - '2467:2467'
-
+    #command: mongod && java -jar dynfi-21.0.10-all.jar
     
   dynfidb:
     image: mongo:latest
@@ -23,11 +21,17 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
+    #build:
+      #context: ./
+      #dockerfile: Dockerfile_mongo
     volumes:
       - mongo-db:/data/db
     ports:
       - '27017:27017'
- 
+    #ports:
+      #- '9090:9090'
+    #command: mongod && java -jar dynfi-21.0.10-all.jar
+
 volumes:
   mongo-db:
     driver: local

@@ -1,11 +1,16 @@
-FROM azul/zulu-openjdk-debian:18-latest
+FROM azul/zulu-openjdk-alpine:13-jre
+
 # Create DIR config
 RUN mkdir -p /data/conf
+
 WORKDIR /data/app
+
 COPY dynfi-21.0.10-all.jar .
+
 # Define mountable directories.
 VOLUME ["/data/db"]
 VOLUME ["/data/conf"]
-RUN wget https://raw.githubusercontent.com/shley008/DynFi/master/dynfi.conf \
-	mv dynfi.conf /data/conf
-ENTRYPOINT [ "java", "-jar", "dynfi-21.0.10-all.jar", "--config",  "/data/conf/dynfi.conf" ]
+
+#CMD [ "java", "-jar", "dynfi-21.0.10-all.jar", "--config",  "/data/conf/custom.dynfi.conf" ]
+ENV CONFIG_FILE /data/conf/custom.dynfi.conf
+ENTRYPOINT java -jar /data/app/dynfi-21.0.10-all.jar
