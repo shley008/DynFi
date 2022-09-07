@@ -1,15 +1,4 @@
-FROM alpine:3.16
-
-
-RUN echo 'http://dl-cdn.alpinelinux.org/alpine/v3.9/main' >> /etc/apk/repositories
-RUN echo 'http://dl-cdn.alpinelinux.org/alpine/v3.9/community' >> /etc/apk/repositories
-RUN apk update
-
-# install bash
-RUN \
-  apk add --no-cache bash
-
-RUN apk --no-cache --update add openjdk11 
+FROM azul/zulu-openjdk-alpine:13-jre
 
 # Create DIR config
 RUN mkdir -p /data/conf
@@ -22,4 +11,6 @@ COPY dynfi-21.0.10-all.jar .
 VOLUME ["/data/db"]
 VOLUME ["/data/conf"]
 
-CMD [ "java", "-jar", "dynfi-21.0.10-all.jar", "--config",  "/data/conf/custom.dynfi.conf" ]
+#CMD [ "java", "-jar", "dynfi-21.0.10-all.jar", "--config",  "/data/conf/custom.dynfi.conf" ]
+ENV CONFIG_FILE /data/conf/custom.dynfi.conf
+ENTRYPOINT java -jar /data/app/dynfi-21.0.10-all.jar

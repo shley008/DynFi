@@ -15,7 +15,7 @@ services:
     #command: mongod && java -jar dynfi-21.0.10-all.jar
     
   dynfidb:
-    image: mongo
+    image: mongo:latest
     container_name: dynfidb
     hostname: dynfidb
     environment:
