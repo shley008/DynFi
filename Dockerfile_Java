@@ -1,10 +1,10 @@
 FROM azul/zulu-openjdk-alpine:13-jre
 
 # Create DIR config
-RUN mkdir -p /data/conf
+#RUN mkdir -p /data/conf
 
-WORKDIR /data/app
-COPY dynfi-21.0.10-all.jar .
+WORKDIR /
+ADD app /app
 
 # Define mountable directories.
 VOLUME ["/data/db"]
@@ -13,4 +13,4 @@ VOLUME ["/data/conf"]
 COPY dynfi.conf /data/conf/
 
 # Run JAR file with config
-ENTRYPOINT java -jar /data/app/dynfi-21.0.10-all.jar --config /data/conf/dynfi.conf
+ENTRYPOINT java -jar /app/dynfi-21.0.10-all.jar --config /app/conf/dynfi.conf
