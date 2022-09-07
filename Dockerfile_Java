@@ -6,13 +6,11 @@ RUN mkdir -p /data/conf
 WORKDIR /data/app
 COPY dynfi-21.0.10-all.jar .
 
-WORKDIR /data/conf
-COPY dynfi.conf .
-
 # Define mountable directories.
 VOLUME ["/data/db"]
 VOLUME ["/data/conf"]
 
-#CMD [ "java", "-jar", "dynfi-21.0.10-all.jar", "--config",  "/data/conf/custom.dynfi.conf" ]
-ENV CONFIG_FILE /data/conf/custom.dynfi.conf
+COPY dynfi.conf /data/conf/
+
+# Run JAR file with config
 ENTRYPOINT java -jar /data/app/dynfi-21.0.10-all.jar --config /data/conf/dynfi.conf
