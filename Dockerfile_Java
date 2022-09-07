@@ -6,14 +6,6 @@ COPY dynfi-21.0.10-all.jar .
 # Define mountable directories.
 VOLUME ["/data/db"]
 VOLUME ["/data/conf"]
-# Create DIR config
-#RUN mkdir -p /data/conf \
-#    mkdir -p /data/app
-#COPY dynfi-21.0.10-all.jar /data/app
-#COPY dynfi.conf /data/conf
-# Define mountable directories.
-#VOLUME ["/data/db"]
-#VOLUME ["/data/conf"]
 RUN wget https://raw.githubusercontent.com/shley008/DynFi/master/dynfi.conf \
 	mv dynfi.conf /data/conf
 ENTRYPOINT [ "java", "-jar", "dynfi-21.0.10-all.jar", "--config",  "/data/conf/dynfi.conf" ]
