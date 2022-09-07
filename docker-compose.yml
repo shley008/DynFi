@@ -12,7 +12,6 @@ services:
       - dynfidb:dynfidb
     ports:
       - '9090:9090'
-      - '2467:2467'
     #command: mongod && java -jar dynfi-21.0.10-all.jar
     
   dynfidb:
