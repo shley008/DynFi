@@ -1,7 +1,6 @@
 version: '3.8'
 services:
   dynfiapp:
-    image: azul/zulu-openjdk-alpine:13-jre
     container_name: dynfiapp
     hostname: dynfiapp
     build:
