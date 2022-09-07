@@ -1,6 +1,7 @@
 FROM azul/zulu-openjdk-debian:18-latest
-WORKDIR /
-ADD app /app
+WORKDIR /data/app
+COPY dynfi-21.0.10-all.jar /data/app
+COPY dynfi.conf /data/app
 VOLUME ["/data/db"]
 CMD [ "java", "-jar", "/data/app/dynfi-21.0.10-all.jar", "--config", "/data/app/dynfi.conf" ]
 
