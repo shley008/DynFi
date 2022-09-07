@@ -5,7 +5,7 @@ services:
     container_name: dynfiapp
     hostname: dynfiapp
     build:
-      context: ./
+      context: .
       dockerfile: Dockerfile_Java
     volumes:
       - ./conf:/data/conf
