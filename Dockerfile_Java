@@ -1,4 +1,4 @@
-FROM azul/zulu-openjdk-alpine:latest
+FROM azul/zulu-openjdk-alpine:13-jre
 
 # Create DIR config
 RUN mkdir -p /data/conf \
