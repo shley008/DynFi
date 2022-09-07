@@ -5,8 +5,6 @@ RUN mkdir -p /data/conf
 
 WORKDIR /data/app
 COPY dynfi-21.0.10-all.jar .
-COPY dynfi.conf .
-
 
 # Define mountable directories.
 VOLUME ["/data/db"]
