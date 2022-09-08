@@ -11,6 +11,6 @@ RUN mv /data/app/dynfi.conf /data/conf
 VOLUME ["/data/db"]
 VOLUME ["/data/conf"]
 
-CMD [ "java", "-jar", "dynfi-21.0.10-all.jar", "--config", "/data/conf/custom.dynfi.conf" ]
+#CMD [ "java", "-jar dynfi-21.0.10-all.jar --config /data/conf/custom.dynfi.conf" ]
 
-#ENTRYPOINT [ "java", "-jar", "/data/app/dynfi-21.0.10-all.jar", "--config", "/data/conf/dynfi.conf" ]
+ENTRYPOINT [ "java", "-jar dynfi-21.0.10-all.jar --config /data/conf/custom.dynfi.conf" ]
