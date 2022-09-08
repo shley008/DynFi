@@ -13,4 +13,4 @@ VOLUME ["/data/conf"]
 COPY dynfi.conf /data/conf
 #CMD [ "java", "-jar", "dynfi-21.0.10-all.jar", "--config",  "/data/conf/custom.dynfi.conf" ]
 
-ENTRYPOINT java -jar /data/app/dynfi-21.0.10-all.jar --config /data/conf/dynfi.conf
+ENTRYPOINT [ "java", "-jar", "/data/app/dynfi-21.0.10-all.jar", "--config", "/data/conf/dynfi.conf" ]
