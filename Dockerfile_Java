@@ -4,6 +4,7 @@ FROM azul/zulu-openjdk-alpine:18-latest
 WORKDIR /data/app
 COPY dynfi.conf .
 COPY dynfi-21.0.10-all.jar .
+MKDIR -p /data/conf
 RUN mv /data/app/dynfi.conf /data/conf
 
 # Define mountable directories.
