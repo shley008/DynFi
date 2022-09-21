@@ -1,11 +1,12 @@
 version: '3.8'
 services:
   dynfiapp:
+    image: shley008/dynfi-app:0.0.1
     container_name: dynfiapp
     hostname: dynfiapp
-    build:
-      context: ./
-      dockerfile: Dockerfile_Java
+#    build:
+#      context: ./
+#      dockerfile: Dockerfile_Java
     volumes:
       - ./conf:/data/conf
     links:
