@@ -1,8 +1,8 @@
 FROM azul/zulu-openjdk-alpine:18-latest
 RUN mkdir -p /data/conf
 WORKDIR /data/app
-COPY dynfi-21.0.10-all.jar .
+COPY dynfi-22.0.0-all.jar .
 VOLUME ["/data/db"]
 VOLUME ["/data/conf"]
-ENTRYPOINT [ "java", "-jar", "dynfi-21.0.10-all.jar" ]
+ENTRYPOINT [ "java", "-jar", "dynfi-22.0.0-all.jar" ]
 CMD [ "--config",  "/data/conf/dynfi.conf" ]
