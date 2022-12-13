@@ -4,5 +4,5 @@ WORKDIR /data/app
 COPY dynfi-22.0.0-all.jar .
 VOLUME ["/data/db"]
 VOLUME ["/data/conf"]
-ENTRYPOINT [ "java", "-jar", "dynfi-22.0.0-all.jar" ]
+ENTRYPOINT [ "java", "-jar", "dynfi-23.0.0-all.jar" ]
 CMD [ "--config",  "/data/conf/dynfi.conf" ]
