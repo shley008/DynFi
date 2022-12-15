@@ -4,9 +4,6 @@ services:
     image: shley008/dynfi-app:latest
     container_name: dynfiapp
     hostname: dynfiapp
-#    build:
-#      context: ./
-#      dockerfile: Dockerfile_Java
     volumes:
       - ./conf:/data/conf
     links:
