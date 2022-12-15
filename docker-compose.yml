@@ -4,8 +4,8 @@ services:
     image: shley008/dynfi-app:latest
     container_name: dynfiapp
     hostname: dynfiapp
-    volumes:
-      - ./conf:/data/conf
+#    volumes:
+#      - ./conf:/data/conf
     links:
       - dynfidb:dynfidb
     ports:
