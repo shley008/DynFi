@@ -18,5 +18,4 @@ services:
       - '27017:27017'
 volumes:
   mongo-db:
-    driver: glusterfs
-    name: "dockergfs/dynfi"
+    driver: replicated
