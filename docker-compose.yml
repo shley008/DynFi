@@ -19,3 +19,4 @@ services:
 volumes:
   mongo-db:
     driver: glusterfs
+    name: "dockergfs/dynfi"
