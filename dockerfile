@@ -1,6 +1,5 @@
 FROM azul/zulu-openjdk:11
 MAINTAINER shley008
-WORKDIR .
 #ADD data /data
 RUN apt update && apt install curl wget -y
 RUN mkdir /app
