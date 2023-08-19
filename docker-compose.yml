@@ -6,6 +6,28 @@ services:
     ports:
       - '9090:9090'
       - '2467:2467'
+  environment:
+    ipAndport=$ipAndport
+    useHttps=$useHttps
+    mongoClientUri=$mongoClientUri
+    mongoDatabase=$mongoDatabase
+    corsAllowOrigin=$corsAllowOrigin
+    connectionAgentPort=$connectionAgentPort
+    deviceCommandTimeoutInSeconds=$deviceCommandTimeoutInSeconds
+    deviceConnectionTimeoutInSeconds=$deviceConnectionTimeoutInSeconds
+    rebootCheckInMinutes=$rebootCheckInMinutes
+    periodicTasksDisabled=$periodicTasksDisabled
+    beatStartAfterSeconds=$beatStartAfterSeconds
+    beatEverySeconds=$beatEverySeconds
+    deviceTaskWorkers=$deviceTaskWorkers
+    keepLogsForDays=$keepLogsForDays
+    directViewConnectTimeoutInMilliseconds=$directViewConnectTimeoutInMilliseconds
+    directViewConnectionRequestTimeoutInMilliseconds=$directViewConnectionRequestTimeoutInMilliseconds
+    directViewMaxOutgoingConnections=$directViewMaxOutgoingConnections
+    directViewSocketTimeoutInMilliseconds=$directViewSocketTimeoutInMilliseconds
+    tryGoingBackToMainConnectionAddressEveryMinutes=$tryGoingBackToMainConnectionAddressEveryMinutes
+    cleanStaleSshConnectionsEveryMinutes=$cleanStaleSshConnectionsEveryMinutes
+    jwtKey=$jwtKey
   dynfidb:
     image: mongo:latest
     hostname: dynfidb
@@ -13,9 +35,8 @@ services:
       - PUID=1000
       - PGID=1000
     volumes:
-      - mongo-db:/data/db
+      - dynfi-mongo-db:/data/db
     ports:
       - '27017:27017'
 volumes:
-  mongo-db:
-    driver: replicated
+  dynfi-mongo-db:
