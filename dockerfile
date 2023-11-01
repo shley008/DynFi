@@ -1,5 +1,5 @@
 FROM azul/zulu-openjdk:11
-MAINTAINER shley008
+LABEL Author shley008
 RUN apt update && apt install curl wget -y
 RUN mkdir /app
 RUN mkdir /scripts
